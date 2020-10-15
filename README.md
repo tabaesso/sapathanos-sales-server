@@ -1,24 +1,25 @@
-# sapathanos-sales-backend
+# ✨ sapathanos-sales-backend
 
 ## ⚠ Requisitos projeto
 -  Docker
 -  Yarn
 
-## 👩🏻‍💻 Como rodar o projeto: desenvolvimento (backend)?
+-[Veja as rotas da api aqui](routes.md)
+
+## 👩🏻‍💻 Como rodar o projeto: desenvolvimento?
 
    -  Digite `yarn` na raiz para instalar as dependências do projeto.
-   -  Digite `docker-compose -f docker-compose.dev.yml up --build` na raiz para a criação do banco de dados.
-   -  No `.env` dentro de `packages/server` copie e cole o que está em `.env.example` e altere para os dados do seu banco de dados e senha do e-mail.
-   -  Digite `yarn sequelize db:migrate` dentro de `packages/server` para criação das tabelas no banco.
-   -  Digite `yarn server:start` se estiver fora de `packages/server`.
-   -  Digite `yarn start` se dentro de `packages/server`.
+   -  Digite `docker-compose -f docker-compose.yml up --build` na raiz para a criação do banco de dados.
+   -  Digite `yarn typeorm migration:create -n NomeDaMigration` na pasta raiz para criação da migration no banco.
+   -  Digite `yarn typeorm migration:run` na pasta raiz para rodar as migrations.
+   -  Digite `yarn dev:server` na pasta raiz para executar o servidor.
 
-## ⛔ Como rodar o projeto: produção?
-   
-   -  Não rode em produção, ainda não está funcionando totalmente.
-   -  Digite `yarn` para instalar as dependências do projeto.
-   -  No `.env` dentro de `packages/server` copie e cole o que está em `.env.production`
-   -  Digite `docker-compose -f docker-compose.yml up --build` para a criação do banco de dados e build do servidor.
+## 🐘 Caso queira usar o PgAdmin (gerenciador de banco Postgres via container)
+  -  Execute primeiro o `docker-compose -f docker-compose.yml up --build`
+  -  Acesse `http://localhost:16543/` para ter acesso ao banco postgres com o PgAdmin.
+  -  Para acessar o PgAdmin: 
+      - Email: `admin@admin.com`
+      - Senha: `docker`
 	
 ## 🌐 COMANDOS GIT:
 

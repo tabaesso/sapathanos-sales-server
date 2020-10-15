@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  sapathanos_sales_db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      PGDATA: /data/sapathanos_sales
+    volumes:
+       - sapathanos_sales_db:/data/sapathanos_sales
+    ports:
+      - "15432:5432"
+    networks:
+      - postgres-compose-network
+  
+  pgadmin_container:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: 'admin@admin.com'
+      PGADMIN_DEFAULT_PASSWORD: 'docker'
+    ports:
+      - "16543:80"
+    depends_on: 
+      - sapathanos_sales_db
+    networks: 
+      - postgres-compose-network
+
+volumes: 
+  sapathanos_sales_db:
+
+networks: 
+  postgres-compose-network:
+    driver: bridge

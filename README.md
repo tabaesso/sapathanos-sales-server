@@ -41,12 +41,12 @@
 ## ⚠ IMPORTANTE:
 -Antes de começar a desenvolver sempre deve ser feito um pull na branch em que vc está trabalhando, para garantir que ela está sincronizada com o conteúdo do github<br>
 -Sempre quando quiser mandar algo para o git precisa seguir a ordem: add > commit > push<br>
--Quando você tiver acabado de testar a sua branch e estiver 100% ok que ela tá pronta, vc entra no github e cria um pull request da sua branch para a master<br>
+-Quando você tiver acabado de testar a sua branch e estiver 100% ok que ela tá pronta, vc entra no github e cria um pull request da sua branch para a main<br>
 -Caso surja qualquer dúvida de como fazer alguma coisa, é só me procurar (Tábata)<br>
 
 ## ⚠ NOMES DAS BRANCHES:
 A nomenclatura deve seguir o padrão:<br>
--master<br>
+-main<br>
 -feature/nome-da-funcionalidade (Ex: cadastro-guia)<br>
 -fix/nome-do-que-estiver-sendo-consertado (Ex: cadastro-guia-salvando)<br>
 

@@ -3,6 +3,9 @@
 ## ⚠ Requisitos projeto
 -  Docker
 -  Yarn
+-  Prettier
+-  EditorConfig
+-  ESLint
 
 - [Veja as rotas da api aqui](routes.md)
 
@@ -14,13 +17,16 @@
    -  Digite `yarn typeorm migration:run` na pasta raiz para rodar as migrations.
    -  Digite `yarn dev:server` na pasta raiz para executar o servidor.
 
+## 🛑 Padrão de código
+   -  Para entender como instalar o EditorConfig, Prettier e ESLint no projeto. Observação: Não é preciso configurá-los novamente, só instalar as extensões e alterar as settings.json do VSCode caso ainda não estejam configuradas. https://www.notion.so/Padr-es-de-projeto-com-ESLint-Prettier-e-EditorConfig-0b57b47a24724c859c0cf226aa0cc3a7
+
 ## 🐘 Caso queira usar o PgAdmin (gerenciador de banco Postgres via container)
   -  Execute primeiro o `docker-compose -f docker-compose.yml up --build`
   -  Acesse `http://localhost:16543/` para ter acesso ao banco postgres com o PgAdmin.
-  -  Para acessar o PgAdmin: 
+  -  Para acessar o PgAdmin:
       - Email: `admin@admin.com`
       - Senha: `docker`
-	
+
 ## 🌐 COMANDOS GIT:
 
 ### Básicos:

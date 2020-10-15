@@ -4,7 +4,7 @@
 -  Docker
 -  Yarn
 
--[Veja as rotas da api aqui](routes.md)
+- [Veja as rotas da api aqui](routes.md)
 
 ## 👩🏻‍💻 Como rodar o projeto: desenvolvimento?
 

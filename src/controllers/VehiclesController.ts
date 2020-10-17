@@ -27,11 +27,11 @@ export default class VehiclesController {
 
     if (filters.brand) {
       vehicle = await vehiclesRepository.findOne({
-        where: {brand: filters.brand}
+        where: { brand: filters.brand },
       });
     } else {
       vehicle = await vehiclesRepository.findOne({
-        where: {sold: filters.sold}
+        where: { sold: filters.sold },
       });
     }
 
@@ -47,13 +47,7 @@ export default class VehiclesController {
 
   async create(request: Request, response: Response) {
     try {
-      const {
-        vehicle,
-        brand,
-        year,
-        description,
-        sold,
-      } = request.body;
+      const { vehicle, brand, year, description, sold } = request.body;
 
       const createVehicle = new CreateVehicleService();
 

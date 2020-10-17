@@ -1,4 +1,4 @@
-## Rotas
+# Rotas
 
 - GET - `/veiculos` - Lista de todos os veículos disponíveis
 - GET - `/veiculos/find` - Lista veículos que através dos parâmetros marca (brand) ou vendido (sold)
@@ -7,3 +7,9 @@
 - UPDATE - `/veiculos/:id` - Atualiza veículo por id
 - PATCH - `/veiculos/:id` - Atualiza veículo por id
 - DELETE - `/veiculos/:id` - Deleta veículo por id
+
+## Clientes
+- POST - `/clientes` - Cria cliente
+
+## Login
+- POST - `/login` - Cria seção com JWT validado para cliente que possui conta

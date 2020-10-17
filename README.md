@@ -1,4 +1,4 @@
-# ✨ sapathanos-sales-backend
+# ✨ sapathanos-sales-server
 
 ## ⚠ Requisitos projeto
 -  Docker

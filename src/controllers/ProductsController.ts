@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import { getConnection, getRepository } from 'typeorm';
 import Product from '../models/Product';
 
 import CreateProductService from '../services/CreateProductService';
@@ -58,5 +58,19 @@ export default class ProductsController {
         const products = await productsRepository.find();
 
         return response.json(products);
+    }
+
+    async show(request: Request, response: Response) {
+        const { id } = request.params;
+
+        /** CONSULTA USANDO QUERY BUILDER */
+        const product = await getConnection()
+            .getRepository(Product)
+            .createQueryBuilder('product')
+            .leftJoinAndSelect('product.size', 'size')
+            .where('product.id =:id', {id: id})
+            .getMany();
+
+        return response.json(product);
     }
 }

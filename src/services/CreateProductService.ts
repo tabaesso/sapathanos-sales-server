@@ -1,5 +1,6 @@
 import { getRepository } from 'typeorm';
 import Product from '../models/Product';
+import CreateSizeService from './CreateSizeService';
 
 interface Request {
     category_id: string;
@@ -21,8 +22,13 @@ class CreateProductService {
     }: Request): Promise<Product> {
         const productRepository = getRepository(Product);
 
+        const createSize = new CreateSizeService();
+
+        const size = await createSize.execute();
+
         const product = await productRepository.create({ 
             category_id,
+            size_id: size.id,
             name, 
             description,
             color,

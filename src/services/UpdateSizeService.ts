@@ -3,7 +3,7 @@ import AppError from "../errors/AppError";
 import Size from "../models/Size";
 
 interface Request {
-    product_id: string;
+    id: string;
     size_33: number;
     size_34: number;
     size_35: number;
@@ -24,7 +24,7 @@ interface Request {
 
 class UpdateSizeService {
     public async execute({
-        product_id,
+        id,
         size_33,
         size_34,
         size_35,
@@ -44,12 +44,10 @@ class UpdateSizeService {
     }: Request): Promise<Size> {
         const sizeRepository = getRepository(Size);
 
-        const size = await sizeRepository.findOne({ 
-            where: {product_id}
-        });
+        const size = await sizeRepository.findOne(id);
 
         if(!size) {
-            throw new AppError('Product not found');
+            throw new AppError('Size not found');
         }
 
         size.size_33 = size_33;

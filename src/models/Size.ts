@@ -7,9 +7,6 @@ class Size {
     id: string;
 
     @Column()
-    product_id: string;
-
-    @Column()
     size_33: number;
 
     @Column()
@@ -63,8 +60,7 @@ class Size {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @OneToOne(()  => Product, product => product.size)
-    @JoinColumn({ name: 'product_id'})
+    @OneToOne(type  => Product, size => Size)
     product: Product;
 }
 

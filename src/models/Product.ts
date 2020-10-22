@@ -20,6 +20,9 @@ class Product {
     name: string;
 
     @Column()
+    size_id: string;
+
+    @Column()
     category_id: string;
 
     @Column()
@@ -47,7 +50,8 @@ class Product {
     @JoinColumn({ name: 'category_id' })    
     category: Category;
 
-    @OneToOne(() => Size, size => size.product)
+    @OneToOne(type => Size, product => Product)
+    @JoinColumn({ name: 'size_id' })
     size: Size;
 }
 

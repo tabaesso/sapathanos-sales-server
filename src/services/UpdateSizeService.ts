@@ -47,7 +47,7 @@ class UpdateSizeService {
         const size = await sizeRepository.findOne(id);
 
         if(!size) {
-            throw new AppError('Size not found');
+            throw new AppError('Not found...');
         }
 
         size.size_33 = size_33;

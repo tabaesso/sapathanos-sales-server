@@ -1,9 +1,11 @@
 import { Request, Response } from 'express';
+import { getRepository } from 'typeorm';
+import Size from '../models/Size';
 import UpdateSizeService from '../services/UpdateSizeService';
 
 export default class SizerController {
     async update(request: Request, response: Response) {
-        const { 
+        const {
             size_33,
             size_34,
             size_35,
@@ -45,6 +47,16 @@ export default class SizerController {
             size_47,
             size_48
         });
+
+        return response.json(size);
+    }
+
+    async show(request: Request, response: Response) {
+      const { id } = request.params;
+
+      const sizeRepository = getRepository(Size);
+
+      const size = await sizeRepository.findOne(id);
 
         return response.json(size);
     }

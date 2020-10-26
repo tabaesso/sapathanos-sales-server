@@ -7,7 +7,7 @@ import UpdateProductStatusService from '../services/UpdateProductStatusService';
 
 export default class ProductsController {
     async create(request: Request, response: Response) {
-        const { 
+        const {
             category_id,
             name,
             description,
@@ -16,12 +16,13 @@ export default class ProductsController {
             price
         } = request.body;
 
+
         const createProduct = new CreateProductService();
 
         const product = await createProduct.execute({
-            category_id, 
-            name, 
-            description, 
+            category_id,
+            name,
+            description,
             color,
             material,
             price

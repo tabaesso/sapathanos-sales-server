@@ -8,6 +8,7 @@ const sizeRouter = Router();
 
 const sizesController = new SizesController();
 
+sizeRouter.get('/:id', sizesController.show);
 sizeRouter.put('/:id', sizesController.update);
 
 export default sizeRouter;

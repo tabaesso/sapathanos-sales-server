@@ -84,5 +84,17 @@ export default class ProductsController {
     const product = await productsRepository.findOne(id);
 
     return response.json(product);
-}
+  }
+
+  async showByCategory(request: Request, response: Response) {
+    const { category_id } = request.params;
+
+    const productsRepository = getRepository(Product);
+
+    const products = await productsRepository.find({
+      where: { category_id }
+    });
+
+    return response.json(products);
+  }
 }

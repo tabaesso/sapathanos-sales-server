@@ -60,4 +60,18 @@ export default class SizerController {
 
         return response.json(size);
     }
+
+    async findSize(request: Request, response: Response) {
+      const { id } = request.params;
+      const { sizeColumn } = request.body;
+
+      const sizeRepository = getRepository(Size);
+
+      const column = await sizeRepository.find({
+        select: [sizeColumn],
+        where: {id}
+      });
+
+      return response.json(column);
+    }
 }

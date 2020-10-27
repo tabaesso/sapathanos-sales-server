@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
+  JoinColumn,
 } from 'typeorm';
+import Product from './Product';
 
 @Entity('sellers')
 class Seller {
@@ -25,6 +28,12 @@ class Seller {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Product, product => product.seller, {
+    cascade: ['insert', 'update']
+  })
+  @JoinColumn()
+  products: Product[];
 }
 
 export default Seller;

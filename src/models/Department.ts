@@ -9,16 +9,13 @@ import {
 } from 'typeorm';
 import Category from './Category';
 
-@Entity()
+@Entity('departments')
 class Department {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
-
-  @Column()
-  category_id: string;
 
   @CreateDateColumn()
   created_at: Date;

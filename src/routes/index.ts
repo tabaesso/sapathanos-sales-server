@@ -6,6 +6,7 @@ import sessionsRouter from './sessions.routes';
 import productsRouter from './products.routes';
 import sizesRouter from './sizes.routes';
 import categoriesRouter from './categories.routes';
+import departmentsRouter from './departments.routes';
 
 const routes = Router();
 
@@ -16,5 +17,6 @@ routes.use('/login', sessionsRouter);
 routes.use('/products', productsRouter);
 routes.use('/sizes', sizesRouter);
 routes.use('/categories', categoriesRouter);
+routes.use('/departamentos', departmentsRouter);
 
 export default routes;

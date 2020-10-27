@@ -13,8 +13,8 @@ class CreateCategoryService {
     const category = categoryRepository.create({
       department_id,
       name,
-      created_at: Date.now(),
-      updated_at: Date.now(),
+      // created_at: Date.now(),
+      // updated_at: Date.now(),
     });
 
     await categoryRepository.save(category);

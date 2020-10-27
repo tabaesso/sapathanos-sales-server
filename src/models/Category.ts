@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, Pri
 import Department from "./Department";
 import Product from "./Product";
 
-@Entity()
+@Entity('categories')
 class Category {
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -26,7 +26,6 @@ class Category {
     @OneToMany(() => Product, product => product.category, {
         cascade: ['insert', 'update']
     })
-    @JoinColumn()
     products: Product[];
 }
 

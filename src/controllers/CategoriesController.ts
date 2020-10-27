@@ -25,4 +25,16 @@ export default class CategoriesController {
 
     return response.json(categories);
   }
+
+  async findByDepartment(request: Request, response: Response) {
+    const { department_id } = request.params;
+
+    const categoriesRepository = getRepository(Category);
+
+    const categories = await categoriesRepository.find({
+      where: { department_id }
+    })
+
+    return response.json(categories);
+  }
 }

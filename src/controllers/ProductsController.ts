@@ -75,4 +75,14 @@ export default class ProductsController {
 
       return response.json(product);
   }
+
+  async showProductOnly(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const productsRepository = getRepository(Product);
+
+    const product = await productsRepository.findOne(id);
+
+    return response.json(product);
+}
 }

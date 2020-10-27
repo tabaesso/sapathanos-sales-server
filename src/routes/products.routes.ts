@@ -18,5 +18,6 @@ productsRouter.get('/',
 productsRouter.get('/active', productsController.findActive);
 productsRouter.get('/:id', productsController.show);
 productsRouter.get('/:id/only', productsController.showProductOnly);
+productsRouter.get('/:category_id/category', productsController.showByCategory);
 
 export default productsRouter;

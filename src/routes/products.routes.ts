@@ -6,16 +6,17 @@ const productsRouter = Router();
 
 const productsController = new ProductsController();
 
-productsRouter.post('/', 
-    //ensureAuthenticated, 
+productsRouter.post('/',
+    //ensureAuthenticated,
     productsController.create);
-productsRouter.put('/:product_id/status', 
-    //ensureAuthenticated, 
+productsRouter.put('/:product_id/status',
+    //ensureAuthenticated,
     productsController.updateStatus);
-productsRouter.get('/', 
-    //ensureAuthenticated, 
+productsRouter.get('/',
+    //ensureAuthenticated,
     productsController.index);
 productsRouter.get('/active', productsController.findActive);
 productsRouter.get('/:id', productsController.show);
+productsRouter.get('/:id/only', productsController.showProductOnly);
 
 export default productsRouter;

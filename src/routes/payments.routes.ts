@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import PaymentsController from '../controllers/PaymentsController';
+// import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const paymentsRouter = Router();
 

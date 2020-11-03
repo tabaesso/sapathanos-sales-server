@@ -1,21 +1,19 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-unused-expressions */
 import { getRepository } from 'typeorm';
-// import AppError from '../errors/AppError';
+import AppError from '../errors/AppError';
 
 import Order from '../models/Order';
-// import OrderDetail from '../models/OrderDetail';
+import OrderDetail from '../models/OrderDetail';
 
 interface ProductDTO {
   name: string;
   sku: string;
   price: number;
+  currency: string;
   quantity: number;
 }
 
 interface Request {
-  customer_id: string;
-  products: ProductDTO[];
+  order_id: string;
 }
 
 interface ItemDTO {
@@ -48,69 +46,56 @@ interface PaymentDTO {
 }
 
 class CreatePaymentService {
-  public async execute({
-    customer_id,
-    products,
-  }: Request): Promise<PaymentDTO> {
-    let totalDasCoisa = 0;
+  public async execute({ order_id }: Request): Promise<PaymentDTO> {
     const carrinho: ItemDTO[] = [];
-    // const orderRepository = getRepository(Order);
+    const orderRepository = getRepository(Order);
 
-    // const order = orderRepository.create({ customer_id });
-    // await orderRepository.save(order);
-
-    // const orderDetailRepository = getRepository(OrderDetail);
-
-    products.forEach(async ({ name, sku, price, quantity }: ProductDTO) => {
-      const convertedPrice = price.toString();
-      console.log(name, sku, price, convertedPrice, customer_id);
-      totalDasCoisa += price * quantity;
-
-      carrinho.push({
-        name,
-        sku,
-        price: convertedPrice,
-        currency: 'BRL',
-        quantity,
-      });
-      // const orderDetail = orderDetailRepository.create({
-      //   name,
-      //   sku,
-      //   price,
-      //   quantity,
-      //   order_id: order.id,
-      // });
-
-      // await orderDetailRepository.save(orderDetail);
+    const order = await orderRepository.findOne({
+      where: { id: order_id },
     });
 
-    // TODO: Receber e cadastrar coisinhas no banco
-    // TODO: Criar rotas para atualizar e cancelar (back)
+    if (!order) {
+      throw new AppError('This order does not exist.', 404);
+    }
+
+    const orderDetailRepository = getRepository(OrderDetail);
+
+    const products = await orderDetailRepository.find({
+      where: { order_id: order.id },
+    });
+
+    products.forEach(
+      async ({ name, sku, price, currency, quantity }: ProductDTO) => {
+        const convertedPrice = price.toString();
+        carrinho.push({
+          name,
+          sku,
+          price: convertedPrice,
+          currency,
+          quantity,
+        });
+      },
+    );
+
+    // TODO: Criar processamento de pagamento no back - video do indiano
     // TODO: Atualizar quantidade de produtos caso compra efetuada
     // TODO: Atualizar status do produto caso quantidade nova do produto fique em 0
     // TODO: Criar rotas para atualizar e cancelar e pagar (front)
-
-    // const carrinho = [
-    //   {
-    //     name: 'produtinho',
-    //     sku: 'asdsadassxzxaslk2',
-    //     price: '1',
-    //     currency: 'BRL',
-    //     quantity: 10,
-    //   },
-    // ];
 
     const json_pagamento = {
       intent: 'sale',
       payer: { payment_method: 'paypal' },
       redirect_urls: {
-        return_url: 'http://opa.com.br/success',
-        cancel_url: 'http://opa.com.br/cancel',
+        return_url: `http://localhost:3333/payments/${order.id}/success`,
+        cancel_url: `http://localhost:3333/payments/${order.id}/cancel`,
       },
       transactions: [
         {
           item_list: { items: carrinho },
-          amount: { currency: 'BRL', total: totalDasCoisa.toString() },
+          amount: {
+            currency: products[0].currency,
+            total: order.total_amount.toString(),
+          },
           description: 'Uma compra bacana',
         },
       ],

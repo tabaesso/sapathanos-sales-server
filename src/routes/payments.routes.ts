@@ -6,8 +6,8 @@ const paymentsRouter = Router();
 
 const paymentsController = new PaymentsController();
 
-paymentsRouter.post('/:id/finalize', paymentsController.create);
-paymentsRouter.post('/success', paymentsController.success);
-paymentsRouter.post('/cancel', paymentsController.cancel);
+paymentsRouter.post('/:order_id/finalize', paymentsController.create);
+paymentsRouter.get('/:order_id/success', paymentsController.success);
+paymentsRouter.get('/:order_id/cancel', paymentsController.cancel);
 
 export default paymentsRouter;

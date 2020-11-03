@@ -7,6 +7,7 @@ import productsRouter from './products.routes';
 import sizesRouter from './sizes.routes';
 import categoriesRouter from './categories.routes';
 import departmentsRouter from './departments.routes';
+import emailRouter from './email.routes';
 
 const routes = Router();
 
@@ -18,5 +19,6 @@ routes.use('/products', productsRouter);
 routes.use('/sizes', sizesRouter);
 routes.use('/categories', categoriesRouter);
 routes.use('/departamentos', departmentsRouter);
+routes.use('/email', emailRouter);
 
 export default routes;

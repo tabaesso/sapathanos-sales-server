@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import { getConnection, getRepository } from 'typeorm';
 import Size from '../models/Size';
 import UpdateSizeService from '../services/UpdateSizeService';
 
@@ -67,10 +67,17 @@ export default class SizerController {
 
       const sizeRepository = getRepository(Size);
 
-      const column = await sizeRepository.find({
-        select: [sizeColumn],
-        where: {id}
-      });
+      // const column = await sizeRepository.find({
+      //   select: [sizeColumn],
+      //   where: {id}
+      // });
+
+      const { column } = await getConnection()
+      .getRepository(Size)
+      .createQueryBuilder('size')
+      .where('size.id =:id', {id: id})
+      .select([`size.${sizeColumn} AS column`])
+      .execute();
 
       return response.json(column);
     }

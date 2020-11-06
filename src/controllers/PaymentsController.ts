@@ -5,6 +5,7 @@ import { Request, Response } from 'express';
 import paypal from 'paypal-rest-sdk';
 
 import CreatePaymentService from '../services/CreatePaymentService';
+import FinishPaymentService from '../services/FinishPaymentService';
 import GeneratePaymentService from '../services/GeneratePaymentService';
 import UpdateOrderService from '../services/UpdateOrderService';
 import DeleteOrderService from '../services/DeleteOrderService';
@@ -33,6 +34,18 @@ export default class PaymentsController {
         });
       }
     });
+  }
+
+  async finish(request: Request, response: Response) {
+    const { order_id } = request.params;
+
+    const finishPayment = new FinishPaymentService();
+
+    const paidOrder = await finishPayment.execute({
+      order_id,
+    });
+
+    return response.json(paidOrder);
   }
 
   async success(request: Request, response: Response) {

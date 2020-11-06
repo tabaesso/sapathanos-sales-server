@@ -25,6 +25,9 @@ class Order {
   @Column()
   total_amount: number;
 
+  @Column()
+  paid: boolean;
+
   @CreateDateColumn()
   created_at: Date;
 

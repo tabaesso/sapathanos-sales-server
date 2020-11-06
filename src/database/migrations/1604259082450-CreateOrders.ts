@@ -25,6 +25,11 @@ export default class CreateOrders1604259082450 implements MigrationInterface {
             default: 0,
           },
           {
+            name: 'paid',
+            type: 'boolean',
+            default: false,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

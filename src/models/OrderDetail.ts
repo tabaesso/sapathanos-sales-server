@@ -18,7 +18,7 @@ class OrderDetail {
   @Column()
   name: string;
 
-  @Column('uuid')
+  @Column()
   sku: string;
 
   @Column()

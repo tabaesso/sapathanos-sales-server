@@ -67,17 +67,17 @@ export default class SizerController {
 
       const sizeRepository = getRepository(Size);
 
-      // const column = await sizeRepository.find({
-      //   select: [sizeColumn],
-      //   where: {id}
-      // });
+      const column = await sizeRepository.find({
+        select: [sizeColumn],
+        where: {id}
+      });
 
-      const { column } = await getConnection()
-      .getRepository(Size)
-      .createQueryBuilder('size')
-      .where('size.id =:id', {id: id})
-      .select([`size.${sizeColumn} AS column`])
-      .execute();
+    //   const { column } = await getConnection()
+    //   .getRepository(Size)
+    //   .createQueryBuilder('size')
+    //   .where('size.id =:id', {id: id})
+    //   .select([`size.${sizeColumn} AS column`])
+    //   .execute();
 
       return response.json(column);
     }

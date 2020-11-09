@@ -19,5 +19,7 @@ productsRouter.get('/active', productsController.findActive);
 productsRouter.get('/:id', productsController.show);
 productsRouter.get('/:id/only', productsController.showProductOnly);
 productsRouter.get('/:category_id/category', productsController.showByCategory);
+productsRouter.get('/:category_id/:page/:perPage/category', productsController.findByCategoryWithPagination);
+productsRouter.get('/:page/:perPage/active', productsController.findActiveWithPagination);
 
 export default productsRouter;

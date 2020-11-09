@@ -20,7 +20,7 @@ export default class CreateOrderDetails1604261233937
           },
           {
             name: 'sku',
-            type: 'uuid',
+            type: 'varchar',
           },
           {
             name: 'price',

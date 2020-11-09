@@ -97,4 +97,38 @@ export default class ProductsController {
 
     return response.json(products);
   }
+
+  async findActiveWithPagination(request: Request, response: Response) {
+    const productsRepository = getRepository(Product);
+    const { page, perPage } = request.params;
+
+    const skip = Number(page);
+    const take = Number(perPage);
+
+    const products = await productsRepository.find({
+        where: {status: 1},
+        skip,
+        take,
+        order: { name: 'ASC' }
+    })
+
+    return response.json(products);
+  }
+
+  async findByCategoryWithPagination(request: Request, response: Response) {
+    const productsRepository = getRepository(Product);
+    const { page, perPage, category_id } = request.params;
+
+    const skip = Number(page);
+    const take = Number(perPage);
+
+    const products = await productsRepository.find({
+        where: {category_id},
+        skip,
+        take,
+        order: { name: 'ASC' }
+    })
+
+    return response.json(products);
+  }
 }

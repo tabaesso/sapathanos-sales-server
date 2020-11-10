@@ -1,4 +1,3 @@
-import path from 'path';
 import 'dotenv/config';
 
 module.exports = {
@@ -9,12 +8,12 @@ module.exports = {
   password: process.env.PG_PASSWORD,
   database: process.env.PG_DATABASE,
   entities: [
-    path.resolve(__dirname, 'src', 'models', '*')
+    'dist/src/models/*',
   ],
   migrations: [
-    path.resolve(__dirname, 'src', 'database', 'migrations', '*')
+    'dist/src/database/migrations/*ts',
   ],
   cli: {
-    migrationsDir: path.resolve(__dirname, 'src', 'database', 'migrations')
+    migrationsDir: 'src/database/migrations',
   },
 };

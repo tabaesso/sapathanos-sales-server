@@ -1,0 +1,17 @@
+{
+  "type": "postgres",
+  "host": "motty.db.elephantsql.com",
+  "port": 5432,
+  "username": "lpawdmyq",
+  "password": "fZhas3_8Sto252Gslf6mutws394hbMt0",
+  "database": "lpawdmyq",
+  "entities": [
+    "./dist/models/*js"
+  ],
+  "migrations": [
+    "./dist/database/migrations/*js"
+  ],
+  "cli": {
+    "migrationsDir": "./dist/database/migrations"
+  }
+}

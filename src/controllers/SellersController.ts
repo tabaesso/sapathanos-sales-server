@@ -14,7 +14,7 @@ export default class SellersController {
       password,
     });
 
-    delete seller.password;
+    // delete seller.password;
 
     return response.json(seller);
   }

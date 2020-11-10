@@ -14,7 +14,7 @@ export default class SessionsController {
       password,
     });
 
-    delete customer.password;
+    // delete customer.password;
 
     return response.json({ customer, token });
   }
@@ -29,7 +29,7 @@ export default class SessionsController {
       password,
     });
 
-    delete seller.password;
+    // delete seller.password;
 
     return response.json({ seller, token });
   }

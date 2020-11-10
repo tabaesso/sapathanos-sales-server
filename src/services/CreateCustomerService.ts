@@ -8,10 +8,11 @@ interface Request {
   name: string;
   email: string;
   password: string;
+  address: string;
 }
 
 class CreateCustomerService {
-  public async execute({ name, email, password }: Request): Promise<Customer> {
+  public async execute({ name, email, password, address }: Request): Promise<Customer> {
     const customersRepository = getRepository(Customer);
 
     const checkUserExists = await customersRepository.findOne({
@@ -28,6 +29,7 @@ class CreateCustomerService {
       name,
       email,
       password: hashedPassword,
+      address,
     });
 
     await customersRepository.save(user);

@@ -4,7 +4,7 @@ import CreateCustomerService from '../services/CreateCustomerService';
 
 export default class CustomersController {
   async create(request: Request, response: Response) {
-    const { name, email, password } = request.body;
+    const { name, email, password, address } = request.body;
 
     const createCustomer = new CreateCustomerService();
 
@@ -12,6 +12,7 @@ export default class CustomersController {
       name,
       email,
       password,
+      address,
     });
 
     delete customer.password;

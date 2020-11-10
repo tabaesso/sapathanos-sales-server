@@ -20,6 +20,9 @@ class Customer {
   @Column()
   password: string;
 
+  @Column()
+  address: string;
+
   @CreateDateColumn()
   created_at: Date;
 

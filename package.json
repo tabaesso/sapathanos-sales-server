@@ -6,9 +6,7 @@
   "scripts": {
     "start": "node dist/src/server.js",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "typeorm:migrate": "npm run typeorm -- dist/ormconfig.js migration:run",
-    "typeorm:migrate:rollback": "npm run typeorm -- dist/ormconfig.js migration:revert",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "build": "tsc"
   },
   "devDependencies": {

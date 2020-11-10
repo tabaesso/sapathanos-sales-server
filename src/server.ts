@@ -3,12 +3,15 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
+import dotenv from 'dotenv';
 
 import AppError from './errors/AppError';
 
 import './database';
 
 const app = express();
+
+dotenv.config();
 
 app.use(cors());
 app.use(express.json());

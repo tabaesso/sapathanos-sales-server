@@ -1,23 +1,20 @@
-import dotenv from 'dotenv';
+import path from 'path';
+import 'dotenv/config';
 
-dotenv.config();
-
-const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } = process.env;
-
-export = {
+module.exports = {
   type: 'postgres',
-  host: DB_HOST,
-  port: DB_PORT,
-  username: DB_USERNAME,
-  password: DB_PASSWORD,
-  database: DB_NAME,
+  host: process.env.PG_HOST,
+  port: process.env.PG_PORT,
+  username: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  database: process.env.PG_DATABASE,
   entities: [
-    './src/models/*ts',
+    path.resolve(__dirname, 'src', 'models', '*')
   ],
   migrations: [
-    './src/database/migrations/*ts',
+    path.resolve(__dirname, 'src', 'database', 'migrations', '*')
   ],
   cli: {
-    migrationsDir: './src/database/migrations'
+    migrationsDir: path.resolve(__dirname, 'src', 'database', 'migrations')
   },
 };

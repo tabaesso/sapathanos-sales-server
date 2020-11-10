@@ -45,8 +45,7 @@ class UpdateOrderService {
           where: { id: product.size_id },
         });
 
-        // TODO: Verificar com xuxu como vai ser pra diferenciar tamanho na hora de subtrair
-        console.log(size?.size_37 - quantity);
+        // console.log(size?.size_37 - quantity);
         console.log(product);
       }
     });

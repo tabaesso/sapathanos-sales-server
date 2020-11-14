@@ -1,5 +1,10 @@
 # ✨ sapathanos-sales-server
 
+![Status][status-badge]
+[![Server][server-badge]][server-url]
+[![License][license-badge]][license-url]
+<br />
+
 ## ⚠ Requisitos projeto
 -  Docker
 -  Yarn
@@ -74,3 +79,12 @@ A nomenclatura deve seguir o padrão:<br>
         </td>
     </tr>
 </table>
+
+### 📓 Licença
+Este projeto está sob a licença do MIT. Veja a [licença][license-url] para mais informações.
+
+[status-badge]: https://img.shields.io/badge/status-build-important?logo=tool&color=%2334EB43
+[server-badge]: https://img.shields.io/badge/server-build-important?logo=tool&color=%239B51E0
+[server-url]: https://sapathanos-sales.herokuapp.com/
+[license-badge]: https://img.shields.io/github/license/tabaesso/sapathanos-sales-app?color=%239B51E0
+[license-url]: https://github.com/tabaesso/sapathanos-sales-app/blob/main/LICENSE

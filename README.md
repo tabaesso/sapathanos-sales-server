@@ -14,7 +14,7 @@
 
 - [Veja algumas rotas da api aqui](routes.md)
 
-## 👩🏻‍💻 Como rodar o projeto: desenvolvimento?
+## 👩🏻‍💻 Como rodar o projeto?
 
    -  Digite `yarn` na raiz para instalar as dependências do projeto.
    -  Digite `docker-compose -f docker-compose.yml up --build` na raiz para a criação do banco de dados.

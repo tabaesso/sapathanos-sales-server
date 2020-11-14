@@ -7,7 +7,7 @@
 -  EditorConfig
 -  ESLint
 
-- [Veja as rotas da api aqui](routes.md)
+- [Veja algumas rotas da api aqui](routes.md)
 
 ## 👩🏻‍💻 Como rodar o projeto: desenvolvimento?
 

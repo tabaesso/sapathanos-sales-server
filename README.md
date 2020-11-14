@@ -13,12 +13,9 @@
 
    -  Digite `yarn` na raiz para instalar as dependências do projeto.
    -  Digite `docker-compose -f docker-compose.yml up --build` na raiz para a criação do banco de dados.
-   -  Digite `yarn typeorm migration:create -n NomeDaMigration` na pasta raiz para criação da migration no banco.
+   -  Copie os itens do arquivo `.env.example` e crie um arquivo na raiz do projeto chamado `.env` com as suas configurações.
    -  Digite `yarn typeorm migration:run` na pasta raiz para rodar as migrations.
    -  Digite `yarn dev:server` na pasta raiz para executar o servidor.
-
-## 🛑 Padrão de código
-   -  Para entender como instalar o EditorConfig, Prettier e ESLint no projeto. Observação: Não é preciso configurá-los novamente, só instalar as extensões e alterar as settings.json do VSCode caso ainda não estejam configuradas. https://www.notion.so/Padr-es-de-projeto-com-ESLint-Prettier-e-EditorConfig-0b57b47a24724c859c0cf226aa0cc3a7
 
 ## 🐘 Caso queira usar o PgAdmin (gerenciador de banco Postgres via container)
   -  Execute primeiro o `docker-compose -f docker-compose.yml up --build`
@@ -26,6 +23,9 @@
   -  Para acessar o PgAdmin:
       - Email: `admin@admin.com`
       - Senha: `docker`
+
+## 🛑 Padrão de código
+   -  Para entender como instalar o EditorConfig, Prettier e ESLint no projeto. Observação: Não é preciso configurá-los novamente, só instalar as extensões e alterar as settings.json do VSCode caso ainda não estejam configuradas. https://www.notion.so/Padr-es-de-projeto-com-ESLint-Prettier-e-EditorConfig-0b57b47a24724c859c0cf226aa0cc3a7
 
 ## 🌐 COMANDOS GIT:
 
@@ -60,6 +60,9 @@ A nomenclatura deve seguir o padrão:<br>
 
 <table>
     <tr>
+        <td style="text-align:center">
+            <a href="https://github.com/yu-gui-oh" target="blank" rel="noopener"><img src="https://avatars1.githubusercontent.com/u/47790486?s=115&v=4"><br><sub>@yu-gui-oh</sub></a>
+        </td>
         <td style="text-align:center">
             <a href="https://github.com/schuansk" target="blank" rel="noopener"><img src="https://avatars1.githubusercontent.com/u/11741138?s=115&v=4"><br><sub>@schuansk</sub></a>
         </td>

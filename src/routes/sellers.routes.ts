@@ -6,5 +6,6 @@ const sellersRouter = Router();
 const sellersController = new SellersController();
 
 sellersRouter.post('/', sellersController.create);
+sellersRouter.get('/', sellersController.index);
 
 export default sellersRouter;

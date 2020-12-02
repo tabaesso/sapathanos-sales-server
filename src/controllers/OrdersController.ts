@@ -23,13 +23,24 @@ export default class OrdersController {
     const month = request.query.month;
     const year = request.query.year;
 
+    const ordersRepository = getRepository(Order);
+    const orders = await ordersRepository.find();
+
+    if (!month && !year) {
+      let amount = 0;
+      orders.map(order => amount += Number(order.total_amount));
+
+      const res = {
+        orders: orders,
+        amount: amount.toFixed(2)
+      }
+
+      return response.json(res);
+    }
 
     if (!month || !year) {
       throw new AppError('Month and year required');
     }
-
-    const ordersRepository = getRepository(Order);
-    const orders = await ordersRepository.find();
 
     const filteredOrders = orders.filter(order =>
       order.paid === true &&

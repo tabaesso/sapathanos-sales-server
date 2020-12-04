@@ -9,6 +9,7 @@ const sizeRouter = Router();
 const sizesController = new SizesController();
 
 sizeRouter.get('/:id', sizesController.show);
+sizeRouter.get('/', sizesController.index);
 sizeRouter.post('/:id/sizecolumn', sizesController.findSize);
 sizeRouter.put('/:id', sizesController.update);
 

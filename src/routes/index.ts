@@ -9,6 +9,7 @@ import categoriesRouter from './categories.routes';
 import departmentsRouter from './departments.routes';
 import emailRouter from './email.routes';
 import ordersRouter from './orders.routes';
+import orderDetailsRouter from './order_details.routes';
 import paymentsRouter from './payments.routes';
 
 const routes = Router();
@@ -23,6 +24,7 @@ routes.use('/categories', categoriesRouter);
 routes.use('/departamentos', departmentsRouter);
 routes.use('/email', emailRouter);
 routes.use('/orders', ordersRouter);
+routes.use('/order_details', orderDetailsRouter);
 routes.use('/payments', paymentsRouter);
 
 export default routes;
